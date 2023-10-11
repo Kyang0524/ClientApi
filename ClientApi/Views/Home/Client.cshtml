@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Client";
+}
+
+<p>@ViewBag.msg</p>
+
+<h2>Client</h2>
+@using (Html.BeginForm(
+  "Client", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        @Html.TextBox("file", "", new { type = "file", required="required"}) <br />
+        @if (Session["APIOnline"].Equals("1"))
+        {
+        <input type="submit" value="Upload" /> <br />
+        }
+    </div>
+}
+
