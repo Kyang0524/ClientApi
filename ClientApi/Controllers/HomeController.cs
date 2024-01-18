@@ -22,7 +22,7 @@ namespace ClientApi.Controllers
     {
 
         public ActionResult Client() {
-            if (ServicePing("140.118.121.104", 5622))
+            if (ServicePing("localhost", 44302))
             {
                 Session["APIOnline"] = "1";
             }
@@ -45,7 +45,7 @@ namespace ClientApi.Controllers
                 StringContent sc = new StringContent(JsonConvert.SerializeObject(jsonValues), UnicodeEncoding.UTF8);
 
                 HttpClient http = new HttpClient();
-                string url = "http://140.118.121.104:5622/demoapi/GASLabReceiveFile";
+                string url = "https://localhost:44302/demoapi/GASLabReceiveFile";
                 MultipartFormDataContent mulContent = new MultipartFormDataContent("----WebKitFormBoundaryrXRBKlhEeCbfHIY");
                 
                 var fileContent = new StreamContent(file.InputStream);
